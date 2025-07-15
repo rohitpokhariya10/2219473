@@ -1,70 +1,73 @@
-# Getting Started with Create React App
+URL Shortener App — Afford Medical Assessment Project
+This is a simple React-based URL Shortener application built as part of the Afford Medical Technologies Online Assessment.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Users can enter a long URL, optionally provide a custom short code, and get a shortened version of the link.
 
-## Available Scripts
+It also includes a custom Logging Middleware that logs important events (info, errors, etc.) to the evaluation server using the provided token.
 
-In the project directory, you can run:
+Features
+Enter any valid long URL
 
-### `npm start`
+ Optional custom short code
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+ Generates a working short URL
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+ Error handling (invalid URL / server down)
 
-### `npm test`
+ Logging middleware that logs actions like:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Button click
 
-### `npm run build`
+API success
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+API failure
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Server error
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Tech Stack Used
+React.js (Frontend)
 
-### `npm run eject`
+Material UI (for styling)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+JavaScript (ES6)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Fetch API for backend integration
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+How to Run This Project Locally
+Clone this repo or copy the code files.
 
-## Learn More
+Install dependencies:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+nginx
+Copy
+Edit
+npm install
+Start the development server:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+sql
+Copy
+Edit
+npm start
+Open in browser:
 
-### Code Splitting
+arduino
+Copy
+Edit
+http://localhost:3000
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+Logging Middleware (Important)
+This project includes a reusable logging function called logEvent that sends logs to Afford’s test server.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Each time something meaningful happens (like user clicking button, getting success, or an error occurs), this log is sent via a POST request.
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+ Logs are sent to:
+POST http://20.244.56.144/evaluation-service/logs
+Example 
+logEvent("frontend", "info", "api", "User clicked shorten button");
+It helps monitor application behavior & is part of the evaluation criteria.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Your provided API server is down
